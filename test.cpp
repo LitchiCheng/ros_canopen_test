@@ -119,7 +119,7 @@ int main(int argc, char const *argv[])
 
     boost::shared_ptr<can::ThreadedSocketCANInterface> driver1 = boost::make_shared<can::ThreadedSocketCANInterface>();
 
-    if (!driver->init(can_device1, 0))  // initialize device at can_device, 0 for no loopback.
+    if (!driver1->init(can_device1, 0))  // initialize device at can_device, 0 for no loopback.
     {
         printf("Failed to initialize can_device at %s\r\n", can_device1.c_str());
         return 1;
