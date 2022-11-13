@@ -21,7 +21,7 @@ class TopicToSocketCAN
         {
             printf("Failed to send message: %s.\r\n", can::tostring(msg, true).c_str());
         }else{
-            printf("send msg %s\r\n", can::tostring(msg, true).c_str());
+            printf("%lld send msg %s\r\n",std::chrono::steady_clock::now().time_since_epoch().count() / 1000000, can::tostring(msg, true).c_str());
         }
     }
 
@@ -82,7 +82,7 @@ class SocketCANToTopic
                 printf("Received frame is error: %s\r\n", can::tostring(f, true).c_str());
             }
         }
-        printf("Received frame: %s\r\n", can::tostring(f, true).c_str());
+        printf("%lld Received frame: %s\r\n", std::chrono::steady_clock::now().time_since_epoch().count() / 1000000, can::tostring(f, true).c_str());
     }
 
     void stateCallback(const can::State & s){
